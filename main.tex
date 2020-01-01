@@ -7,11 +7,23 @@
 \usepackage{booktabs}
 \usepackage{fontawesome}
 
+\usepackage[
+    backend=biber,
+    defernumbers=true,
+    sorting=ydnt,
+    maxbibnames=20
+]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true}
+
 % personal data
 \name{Vivek}{Gopalakrishnan}
 \title{Curriculum Vitae}
 \address{Johns Hopkins University}{Baltimore, MD}{}
 \email{vgopala4@jhu.edu}
+\phone[mobile]{+1~(781)~496~8146}
 \homepage{v715.github.io}
 \social[github]{v715}
 
@@ -21,11 +33,13 @@
 \makecvtitle
 
 \input{text/edu.tex}
+\input{text/interests.tex}
 % \input{text/thesis.tex}
 \input{text/exp.tex}
 \input{text/publications.tex}
 \input{text/awards.tex}
 \input{text/skills.tex}
-\input{text/leader.tex}
+\input{text/teaching.tex}
+\input{text/leadership.tex}
 
 \end{document}
