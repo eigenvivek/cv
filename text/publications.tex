@@ -4,5 +4,17 @@
 % \nocite{gopalakrishnanBMES2019}
 % \printbibliography[type=unpublished,title={Conference Presentations}]
 
+% Published
+\defbibfilter{published}{
+    keyword=article or keyword=conference
+}
 \nocite{leeComparisonMachineLearning2019,gopalakrishnanBMES2019,wangNodeSpecificHeritabilityMouse2019b,}
-\printbibliography[title={Publications and Conference Presentations}]
+\printbibliography[filter=published, title={Publications and Conference Presentations}]
+
+% Submitted
+\nocite{wangNodeSpecificHeritabilityMouse2019b}
+\printbibliography[keyword={submitted}, title={Submitted (Peer-Reviewed Research Articles)}]
+
+% In preparation
+\nocite{gopalakrishnanComparingROCCurves,gopalakrishnanMultiLevelConnectomics,}
+\printbibliography[keyword={draft}, title={Manuscripts in Preparation}]
