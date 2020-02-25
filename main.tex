@@ -4,9 +4,14 @@
 \moderncvcolor{blue} 
 
 \usepackage[utf8]{inputenc}
-\usepackage[scale=0.775]{geometry}
+\usepackage[scale=0.8]{geometry}
 \usepackage{booktabs}
 \usepackage{fontawesome}
+
+% https://tex.stackexchange.com/questions/310612/moderncv-date-year-on-top-month
+\usepackage{datetime}
+\def\dates[#1.#2-#3.#4]{\yearabove{\monthname[#1]}{#2}--\yearabove{\monthname[#3]}{#4}}
+\newcommand{\yearabove}[2]{\parbox[t]{10mm}{\centering{#2\par\vspace{-2mm} \tiny{#1}}}}
 
 \usepackage[
     backend=biber,
@@ -39,12 +44,12 @@
 \input{text/edu.tex}
 \input{text/interests.tex}
 % \input{text/thesis.tex}
+\input{text/skills.tex}
 \input{text/exp.tex}
-\pagebreak
 \input{text/publications.tex}
 \input{text/awards.tex}
-\input{text/skills.tex}
-\input{text/teaching.tex}
+\pagebreak
+% \input{text/teaching.tex}
 \input{text/leadership.tex}
 
 \end{document}
