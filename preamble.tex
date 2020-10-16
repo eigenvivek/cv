@@ -1,0 +1,34 @@
+\moderncvstyle{classic}
+\moderncvcolor{blue} 
+
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.8]{geometry}
+\usepackage{booktabs}
+\usepackage{fontawesome}
+
+\usepackage[mmddyyyy]{datetime}
+
+\usepackage[utf8]{inputenc}
+\usepackage[unicode]{hyperref}
+
+\usepackage[
+    backend=biber,
+    defernumbers=true,
+    sorting=ydnt,
+    maxbibnames=20,
+]{biblatex}
+\renewbibmacro{in:}{}
+\AtEveryBibitem{\clearfield{pages}}
+\AtEveryBibitem{\clearfield{volume}}
+\AtEveryBibitem{\clearfield{number}}
+\AtEveryBibitem{\clearfield{issn}}
+\addbibresource{references.bib}
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\pagenumbering{roman}
+\chead{\textbf{Vivek Gopalakrishnan}, Department of Biomedical Engineering, Johns Hopkins University}
+
+\fancyfoot[C]{Page \thepage\ of \pageref*{LastPage}}
+\fancyfoot[R]{\today}
