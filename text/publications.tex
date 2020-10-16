@@ -5,16 +5,21 @@
 % \printbibliography[type=unpublished,title={Conference Presentations}]
 
 % Published
-\defbibfilter{published}{
-    keyword=article or keyword=conference
+% \defbibfilter{published}{keyword=article}
+
+\nocite{
+    gopalakrishnanPreHAARTCD4Tlymphocytes2020,
+    wangVariabilityHeritabilityMouse2020,
+    leeComparisonMachineLearning2019a,
 }
-\nocite{leeComparisonMachineLearning2019,gopalakrishnanBMES2019,wangNodeSpecificHeritabilityMouse2019b,}
-\printbibliography[filter=published, title={Publications and Conference Presentations}]
+\printbibliography[keyword={article}, title={Publications}]
 
 % Submitted
-\nocite{wangNodeSpecificHeritabilityMouse2019b}
+\nocite{
+    chungStatisticalConnectomics2020b,
+}
 \printbibliography[keyword={submitted}, title={Submitted (Peer-Reviewed Research Articles)}]
 
-% In preparation
-\nocite{gopalakrishnanMultiLevelConnectomics,gopalakrishnanComparingROCCurves,}
-\printbibliography[keyword={draft}, title={Manuscripts in Preparation}]
+% Posters
+\nocite{gopalakrishnanBMES2019,}
+\printbibliography[keyword={poster}, title={Poster Presentations}]

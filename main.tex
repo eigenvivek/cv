@@ -1,55 +1,48 @@
-\documentclass[11pt, letterpaper, sans, colorlinks, linkcolor=true]{moderncv}
+\documentclass[11pt, letterpaper, sans, citecolor=blue, colorlinks=true, urlcolor=blue]{moderncv}
+\input{preamble.tex}
 
-\moderncvstyle{classic}
-\moderncvcolor{blue} 
+% \renewcommand*{\namefont}{\fontsize{24}{40}\mdseries\upshape}
+\setlength{\hintscolumnwidth}{0.135\textwidth}
 
-\usepackage[utf8]{inputenc}
-\usepackage[scale=0.8]{geometry}
-\usepackage{booktabs}
-\usepackage{fontawesome}
+% Overwrite homepage command to use https
+\makeatletter % <=======================================================
+\newcommand*{\httpslink}[2][]{%
+  \ifthenelse{\equal{#1}{}}%
+    {\href{https://#2}{#2}}%
+    {\href{https://#2}{#1}}}
+\renewcommand*{\homepage}[2]{\def\@homepage{#1}\def\@homepagetitle{#2}}
+\patchcmd{\makecvhead}{%search
+  \makenewline\homepagesymbol\httplink{\@homepage}}{%replace
+        \ifthenelse{\isundefined{\@homepage}}{}{%
+    \ifthenelse{\equal{\@homepagetitle}{}}% \homepagetitle could be empty
+    {\makenewline\homepagesymbol\httpslink{\@homepage}}%
+    {\makenewline\homepagesymbol\httpslink[\@homepagetitle]{\@homepage}}}%
+  }{%success
+  }{%failure
+    }
+\makeatother % <========================================================
 
-% https://tex.stackexchange.com/questions/310612/moderncv-date-year-on-top-month
-\usepackage{datetime}
-\def\dates[#1.#2-#3.#4]{\yearabove{\monthname[#1]}{#2}--\yearabove{\monthname[#3]}{#4}}
-\newcommand{\yearabove}[2]{\parbox[t]{10mm}{\centering{#2\par\vspace{-2mm} \tiny{#1}}}}
-
-\usepackage[
-    backend=biber,
-    defernumbers=true,
-    sorting=ydnt,
-    sorting=none,
-    maxbibnames=20
-]{biblatex}
-\renewbibmacro{in:}{}
-\addbibresource{references.bib}
-
-% personal data
+% Personal data
 \name{Vivek}{Gopalakrishnan}
-\title{Curriculum Vit\ae}
-\address{Johns Hopkins University}{Baltimore, MD}{}
+% \address{Johns Hopkins University}{Baltimore, MD}{}
 \email{vgopala4@jhu.edu}
-\phone[mobile]{+1~(781)~496~8146}
-\homepage{v715.github.io}
+% \phone[mobile]{+1~(781)~496~8146}
+\homepage{vivekg.dev}{https://vivekg.dev}
 \social[github]{v715}
-
 
 \begin{document}
 
-% https://tex.stackexchange.com/questions/246614/how-are-the-colors-for-certain-schemes-defined-in-moderncv
-% \definecolor{orange}{rgb}{0.95,0.55,0.15}
-\hypersetup{urlcolor=color1}
-
 \makecvtitle
+\vspace*{-1.5\baselineskip}
+I am a combined BS/MSE student in the Department of Biomedical Engineering at Johns Hopkins University. My research focuses on developing machine learning methods to analyze multi-subject neuroimaging data (advised by \href{https://jovo.me}{Dr. Joshua T. Vogelstein} and \href{https://www.ams.jhu.edu/~priebe/}{Dr. Carey E. Priebe}). Currently, I am building a Random Forest (RF)-based computer vision algorithm to perform robust and interpretable brain tumor segmentation. I also lead a Design Team of undergraduate biomedical engineers (advised by \href{https://www.bme.jhu.edu/faculty_staff/elizabeth-logsdon-phd/}{Dr. Elizabeth Logsdon} and \href{https://www.hopkinsmedicine.org/profiles/results/directory/profile/1571333/rani-hasan}{Dr. Rani Hasan}). We are building a dynamic fusion image guidance system for minimally invasive heart surgery.
 
 \input{text/edu.tex}
-\input{text/interests.tex}
 % \input{text/thesis.tex}
-\input{text/skills.tex}
 \input{text/exp.tex}
 \input{text/publications.tex}
+\input{text/skills.tex}
+\input{text/teaching.tex}
+% \input{text/leadership.tex}
 \input{text/awards.tex}
-\pagebreak
-% \input{text/teaching.tex}
-\input{text/leadership.tex}
 
 \end{document}
