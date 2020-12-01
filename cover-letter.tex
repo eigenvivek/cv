@@ -1,0 +1,65 @@
+\documentclass[11pt, letterpaper, sans, citecolor=blue, colorlinks=true, urlcolor=blue]{moderncv}
+\input{preamble.tex}
+
+% \renewcommand*{\namefont}{\fontsize{24}{40}\mdseries\upshape}
+\setlength{\hintscolumnwidth}{0.135\textwidth}
+
+% Overwrite homepage command to use https
+\makeatletter % <=======================================================
+\newcommand*{\httpslink}[2][]{%
+  \ifthenelse{\equal{#1}{}}%
+    {\href{https://#2}{#2}}%
+    {\href{https://#2}{#1}}}
+\renewcommand*{\homepage}[2]{\def\@homepage{#1}\def\@homepagetitle{#2}}
+\patchcmd{\makecvhead}{%search
+  \makenewline\homepagesymbol\httplink{\@homepage}}{%replace
+        \ifthenelse{\isundefined{\@homepage}}{}{%
+    \ifthenelse{\equal{\@homepagetitle}{}}% \homepagetitle could be empty
+    {\makenewline\homepagesymbol\httpslink{\@homepage}}%
+    {\makenewline\homepagesymbol\httpslink[\@homepagetitle]{\@homepage}}}%
+  }{%success
+  }{%failure
+    }
+\makeatother % <========================================================
+
+% Personal data
+\name{Vivek}{Gopalakrishnan}
+% \address{Johns Hopkins University}{Baltimore, MD}{}
+\email{vgopala4@jhu.edu}
+% \phone[mobile]{+1~(781)~496~8146}
+\homepage{vivekg.dev}{https://vivekg.dev}
+\social[github]{v715}
+
+\begin{document}
+
+\makecvtitle
+\vspace*{-1.5\baselineskip}
+I am a fourth-year student at Johns Hopkins University (JHU) concurrently pursuing BS and MSE degrees in Biomedical Engineering (BME). My focus area is \textbf{biomedical data science}. Through this unique degree program, I have developed a broad foundation in several disciplines (including pure mathematics, machine learning, and software development) while building expertise in my focus area through advanced graduate-level coursework. 
+
+\vspace{1em}
+I have extensive experiencing conducting and publishing research in biomedical data science.
+My research interests and experiences are rooted in the challenges of biomedical data science, specifically in the development of algorithms to extract latent information from large, complex, and noisy biomedical datasets. Through multiple research experiences, I have had the opportunity to develop computational solutions to problems in pediatric medicine, genomics, connectomics, and interventional cardiology (please see CV for details and publications).
+
+\vspace{1em}
+Currently, I am working on two biomedical imaging projects:
+\begin{itemize}
+    \item I am building a Random Forest (RF)-based computer vision algorithm to perform robust and interpretable brain tumor segmentation (advised by \href{https://jovo.me}{Dr. Joshua T. Vogelstein} and \href{https://www.ams.jhu.edu/~priebe/}{Dr. Carey E. Priebe}).
+    \item I am leading a team of 8 biomedical engineering undergraduates to develop a dynamic fusion image guidance system for interventional cardiologists at Johns Hopkins Hospital (advised by \href{https://www.bme.jhu.edu/faculty_staff/elizabeth-logsdon-phd/}{Dr. Elizabeth Logsdon} and \href{https://www.hopkinsmedicine.org/profiles/results/directory/profile/1571333/rani-hasan}{Dr. Rani Hasan}). 
+\end{itemize}
+These projects represent my interest in using computational approaches to build solutions to unmet clinical needs and improve the quality of care clinicians are able to deliver to patients.
+
+\vspace{1em}
+This internship opportunity lies at the intersection of my prior experience in machine learning methods development and biomedical data analysis. 
+I am particularly interested in jointly developing data science solutions with a large team, and learning how such teams operate efficiently at industry scale.
+
+\vspace{1em}
+Thank you very much for this opportunity.
+I look forward to hearing from you!
+
+\vspace{1em}
+\setlength{\parindent}{50ex}
+Sincerely,\\[2.5em]
+
+Vivek Gopalakrishnan
+
+\end{document}
