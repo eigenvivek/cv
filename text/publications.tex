@@ -5,6 +5,9 @@
 % \printbibliography[type=unpublished,title={Conference Presentations}]
 
 % Published
+\defbibfilter{all}{%
+    keyword=article or keyword=preprint
+}
 \nocite{
     gopalakrishnanPreHAARTCD4Tlymphocytes2020,
     chungStatisticalConnectomics2020b,
@@ -15,13 +18,11 @@
 
 % Submitted
 \nocite{
-    % chungStatisticalConnectomics2020b,
 }
-\printbibliography[keyword={submitted}, title={Submitted (Preprints)}]
+\printbibliography[keyword={preprint}, title={Submitted (Preprints)}]
 
 % Draft
 \nocite{
-    gopalakrishnanMultiscaleComparativeConnectomics,
 }
 \printbibliography[keyword={draft}, title={In Preparation}]
 
